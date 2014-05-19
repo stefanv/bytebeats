@@ -40,4 +40,9 @@ except:
     print "There are %d songs." % len(tunes)
     sys.exit(0)
 
+if sys.stdout.isatty():
+        print "Stdout goes to terminal--you probably don't want to do that."
+        print "Pipe stdout to `aplay` instead."
+        sys.exit(0)
+
 play(tunes[n])
