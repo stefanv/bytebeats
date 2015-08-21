@@ -45,7 +45,7 @@ def play(song):
     line, = plt.plot(np.zeros((bufsize,)))
     ax.set_ylim([0, 255])
 
-    frames = xrange(2**30)
+    frames = range(2**30)
 
     def play_samples(t, line, song, bufsize):
         # Load more data into the sound buffer than what is displayed
@@ -69,14 +69,14 @@ try:
     n = int(sys.argv[1])
     tunes[n]
 except:
-    print "Usage: ./bytebeats.py song-nr | aplay"
-    print
-    print "There are %d songs." % len(tunes)
+    print("Usage: ./bytebeats.py song-nr | aplay")
+    print()
+    print("There are %d songs." % len(tunes))
     sys.exit(0)
 
 if sys.stdout.isatty():
-    print "Stdout goes to terminal--you probably don't want to do that."
-    print "Pipe stdout to `aplay` instead."
+    print("Stdout goes to terminal--you probably don't want to do that.")
+    print("Pipe stdout to `aplay` instead.")
     sys.exit(0)
 
 play(tunes[n])
